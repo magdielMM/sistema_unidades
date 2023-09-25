@@ -1,0 +1,96 @@
+﻿@model IEnumerable<sistema_unidades.Models.Unidad>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Inicio</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Crear nuevo</a>
+</p>
+<div class="row justify-content-end mb-2">
+    <div class="col-auto">
+        <input type="text" id="buscador" class="form-control form-control-sm" placeholder="Buscar">
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Placa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Folio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NSerie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdClienteNavigation.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdPeriodoNavigation.Mes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdTipoNavigation.Tipo1)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Placa)
+            </td>
+            <td>
+               <div class="input-group">
+                        <input type="date" class="form-control" value="@item.Fecha.ToString("yyyy-MM-dd")" readonly />
+                    </div>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Folio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NSerie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdClienteNavigation.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPeriodoNavigation.Mes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTipoNavigation.Tipo1)
+            </td>
+            <td>
+                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Details" class="btn btn-info" asp-route-id="@item.Id">Detalles</a> |
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section scripts {
+    <script>
+        $(document).ready(function() {
+            $('#buscador').on('input', function() {
+                var term = $(this).val().toLowerCase();
+                $('tbody tr').filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(term) > -1)
+                });
+            });
+        });
+    </script>
+}
