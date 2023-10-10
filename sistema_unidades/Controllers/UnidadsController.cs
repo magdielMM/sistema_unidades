@@ -18,6 +18,13 @@ namespace sistema_unidades.Controllers
             _context = context;
         }
 
+        public IActionResult UnidadesPorCliente(int clienteId)
+        {
+            var unidades = _context.Unidads.Where(u => u.IdCliente == clienteId).ToList();
+            return View(unidades);
+        }
+
+
         // GET: Unidads
         public async Task<IActionResult> Index()
         {

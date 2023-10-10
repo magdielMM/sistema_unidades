@@ -21,9 +21,14 @@ namespace sistema_unidades.Controllers
         // GET: Clientes
         public async Task<IActionResult> Index()
         {
-              return _context.Clientes != null ? 
-                          View(await _context.Clientes.ToListAsync()) :
-                          Problem("Entity set 'ClienteBdContext.Clientes'  is null.");
+            if (_context.Clientes != null)
+            {
+                return View(await _context.Clientes.ToListAsync());
+            }
+            else
+            {
+                return Problem("Entity set 'ClienteBdContext.Clientes' is null.");
+            }
         }
 
         // GET: Clientes/Details/5
