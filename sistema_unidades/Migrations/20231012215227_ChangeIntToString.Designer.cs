@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using sistema_unidades.Models;
 
@@ -11,9 +12,11 @@ using sistema_unidades.Models;
 namespace sistema_unidades.Migrations
 {
     [DbContext(typeof(ClienteBdContext))]
-    partial class ClienteBdContextModelSnapshot : ModelSnapshot
+    [Migration("20231012215227_ChangeIntToString")]
+    partial class ChangeIntToString
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

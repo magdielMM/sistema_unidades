@@ -60,7 +60,7 @@ namespace sistema_unidades.Migrations
                     placa = table.Column<string>(type: "varchar(10)", unicode: false, maxLength: 10, nullable: false),
                     fecha = table.Column<DateTime>(type: "date", nullable: false),
                     folio = table.Column<long>(type: "bigint", nullable: false),
-                    n_serie = table.Column<int>(type: "int", unicode: false, fixedLength: true, maxLength: 4, nullable: false),
+                    n_serie = table.Column<string>(type: "int", unicode: false, fixedLength: true, maxLength: 4, nullable: false),
                     id_cliente = table.Column<int>(type: "int", nullable: false),
                     status = table.Column<bool>(type: "bit", nullable: false),
                     id_tipo = table.Column<int>(type: "int", nullable: false),

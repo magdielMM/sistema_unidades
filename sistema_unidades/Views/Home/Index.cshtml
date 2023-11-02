@@ -1,8 +1,36 @@
-﻿@model List<sistema_unidades.Models.Cliente>
+﻿using sistema_unidades.Models;
+@model IEnumerable<sistema_unidades.Models.Cliente>
+
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Index";
 }
+
+<h1>Inicio</h1>
 <div class="text-center">
     <h1 class="display-4">Clientes</h1>
 </div>
-
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+ @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            </tr>
+        } 
+    </tbody>
+</table>
