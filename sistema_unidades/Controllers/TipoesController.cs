@@ -44,7 +44,7 @@ namespace sistema_unidades.Controllers
             return View(tipo);
         }
 
-        // GET: Tipoes/Create
+        // GET: Tipoes/Create   
         public IActionResult Create()
         {
             return View();

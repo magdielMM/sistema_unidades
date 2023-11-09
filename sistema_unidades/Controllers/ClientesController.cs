@@ -27,7 +27,7 @@ namespace sistema_unidades.Controllers
             }
             else
             {
-                return Problem("Entity set 'ClienteBdContext.Clientes' is null.");
+                return Problem("La entidad 'ClienteBdContext.Clientes' es nulo.");
             }
         }
 
@@ -147,7 +147,7 @@ namespace sistema_unidades.Controllers
         {
             if (_context.Clientes == null)
             {
-                return Problem("Entity set 'ClienteBdContext.Clientes'  is null.");
+                return Problem("Entidad 'ClienteBdContext.Clientes'  es nulo.");
             }
             var cliente = await _context.Clientes.FindAsync(id);
             if (cliente != null)

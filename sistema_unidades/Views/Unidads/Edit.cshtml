@@ -53,8 +53,9 @@
                 <select asp-for="IdPeriodo" class="form-control" asp-items="ViewBag.IdPeriodo"></select>
                 <span asp-validation-for="IdPeriodo" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
-                <input type="submit" value="Guardar" class="btn btn-success" />
+                <input type="submit" value="Guardar" class="btn btn-success" /> | <a asp-action="Index" class="btn btn-dark">Regresar a la lista</a>
             </div>
         </form>
     </div>

@@ -4,11 +4,16 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
+<h1>Inicio</h1>
+<h4>Tipo</h4>
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-success">Crear</a>
 </p>
+<div class="row justify-content-end mb-2">
+    <div class="col-auto">
+        <input type="text" id="buscador" class="form-control form-control-sm" placeholder="Buscar">
+    </div>
+</div>
 <table class="table">
     <thead>
         <tr>
@@ -25,11 +30,23 @@
                 @Html.DisplayFor(modelItem => item.Tipo1)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Details" class="btn btn-info" asp-route-id="@item.Id">Detalles</a> |
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">Eliminar</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('#buscador').on('input', function () {
+                var term = $(this).val().toLowerCase();
+                $('tbody tr').filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(term) > -1)
+                });
+            });
+        });
+    </script>
+    }

@@ -109,7 +109,7 @@ namespace sistema_unidades.Controllers
         public async Task<IActionResult> Edit(int id, [Bind("Id,Placa,Fecha,Folio,NSerie,IdCliente,Status,IdTipo,IdPeriodo")] Unidad unidad)
         {
             if (id != unidad.Id)
-            {
+            {   
                 return NotFound();
             }
 
